@@ -4,12 +4,9 @@ const db = require('./database/database')
 const app = express()
 
 
-app.get("/", (req, res) => {
-    res.send("Bye there!!!")
-})
-
-
-
+// Routes
+app.use('/api', require('./routes/create'))
+app.use('/api', require('./routes/read'))
 
 db.initDb((err, db) => {
     if(err){
