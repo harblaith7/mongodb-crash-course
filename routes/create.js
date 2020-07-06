@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const db = require("../database/database")
 
-
+// INSERTING ONE DOCUMENT
 router.post('/insertOne', async (req, res) => {
     let results = await db
     .getDb()
@@ -20,7 +20,7 @@ router.post('/insertOne', async (req, res) => {
     res.json(results)
 })
 
-
+// INSERTING MANY DOCUMENTS
 router.post('/insertMany', async (req, res) => {
     let results = await db
     .getDb()

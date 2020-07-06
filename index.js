@@ -7,6 +7,8 @@ const app = express()
 // Routes
 app.use('/api', require('./routes/create'))
 app.use('/api', require('./routes/read'))
+app.use('/api', require('./routes/update'))
+app.use('/api', require('./routes/delete'))
 
 db.initDb((err, db) => {
     if(err){

@@ -47,20 +47,12 @@ router.get('/logicalOperators', async (req, res) => {
     .getDb()
     .collection('players')
     .find({
-        $or: [
-            {$and: [
-                {"stats.ppg": {$gte: 10}},
-                {"stats.apg": {$gte: 10}}
-            ]},
-            {$and: [
-                {"stats.ppg": {$gte: 10}},
-                {"stats.rbg": {$gte: 10}}
-            ]},
-            {$and: [
-                {"stats.apg": {$gte: 10}},
-                {"stats.rbg": {$gte: 10}}
-            ]}
-        ]
+        gamesPlayed: {
+            $elemMatch : {
+                opponent: "LA Lakers",
+                points: {$gte: 20}
+            }
+        }
     })
     .toArray()
 
